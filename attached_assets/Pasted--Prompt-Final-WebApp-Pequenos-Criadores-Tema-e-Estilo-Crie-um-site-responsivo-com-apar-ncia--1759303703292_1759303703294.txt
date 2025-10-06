@@ -1,0 +1,142 @@
+🎨 Prompt Final — WebApp Pequenos Criadores
+🎨 Tema e Estilo
+
+Crie um site responsivo com aparência de aplicativo (webapp).
+
+Tema: azul bebê (#9ED9FF) com detalhes amarelo (#FFD93D) e branco (#FFFFFF).
+
+Estilo lúdico, divertido e amigável para crianças e pais.
+
+Ícones arredondados, botões coloridos, tipografia divertida (Poppins Rounded ou similar).
+
+Aparência premium, simples e elegante.
+
+📱 Navegação (abas fixas no rodapé)
+
+🏠 Principal → Produto principal (atividades).
+
+📖 Continuar aprendendo → atividades já abertas pelo usuário.
+
+📚 Mais conteúdos → Ofertas e Bônus bloqueados.
+
+⚙️ Configurações → suporte, tema, logout.
+
+🏠 Aba Principal — Produto Principal
+
+Contém 2 módulos em carrossel.
+
+Cada módulo exibe cards com: imagem azul ilustrativa, título da atividade, botão “Ver Passo a Passo”.
+
+Se não comprado → card aparece com cadeado 🔒 e botão “Comprar para desbloquear”.
+
+Se comprado → abre o passo a passo (conteúdo do PDF).
+
+Módulo 1 – Projetos Criativos Iniciais
+
+Porta-lápis de Papelão
+
+Máscara de Super-Herói
+
+Quebra-Cabeça de Foto
+
+Boneco Articulado
+
+Marcadores de Página
+
+Módulo 2 – Projetos Intermediários e Avançados
+
+Mão Robótica com Canudos
+
+Pistola de Água Caseira
+
+Garagem para Carrinhos
+
+Mario Bros 3D de Papel
+
+Mini Foguete de Bicarbonato
+
+📚 Aba Mais Conteúdos — Ofertas e Bônus Bloqueados
+
+Aqui ficam todos os cards de compra.
+
+Cards de Oferta
+
+Pacote Essencial – Produto Principal
+
+Título: “Mega Kit Pequenos Criadores (100 fichas)”
+
+Descrição: 100 atividades criativas para imprimir e brincar em família.
+
+Botão: Comprar Agora
+
+Pacote Premium – Produto + Bônus ⭐
+
+Título: “Pequenos Criadores Premium (Kit + 5 Bônus)”
+
+Descrição: Leve o Mega Kit + todos os bônus exclusivos em um só pacote.
+
+Botão: Comprar Agora
+
+Cards dos Bônus (apenas para Premium, bloqueados até compra)
+
+🎲 Meus Primeiros Inventos Científicos
+
+🦋 Origami em Família – Desafio 7 dias
+
+🧡 Guia de Modelagem com Massinha
+
+🎈 Balões Mágicos – Jogos e Desafios
+
+📅 Desafio 30 Dias Sem Telas
+
+👉 Regras:
+
+Quem compra Essencial → desbloqueia só os módulos da Aba Principal.
+
+Quem compra Premium → desbloqueia Produto + todos os bônus.
+
+Cards bloqueados aparecem com ícone de cadeado 🔒 até a compra.
+
+📖 Aba Continuar Aprendendo
+
+Mostra cards menores com as atividades já abertas pelo usuário.
+
+Botão “Retomar” para continuar onde parou.
+
+⚙️ Aba Configurações
+
+Troca de tema (claro/escuro).
+
+Suporte e garantia.
+
+Logout.
+
+🔐 Login e Área de Membros
+
+Antes de liberar o app:
+
+Tela de login divertida e simples.
+
+Email: cliente713@pequenoscriadores.com
+
+Senha: pc713
+
+📌 Visual: fundo azul claro, inputs arredondados, botão amarelo, ícone infantil.
+
+Se login correto → liberar todas as abas.
+
+Conteúdo só aparece se a compra foi feita.
+
+✅ Resumão do Fluxo
+
+Login → protege a área de membros.
+
+Principal → Produto Principal (2 módulos).
+
+Mais Conteúdos → Ofertas (Essencial + Premium) + Bônus bloqueados.
+
+Continuar Aprendendo → atividades salvas.
+
+Configurações → tema, suporte, logout.
+
+👉 Resultado: um webapp infantil premium, organizado como área de membros, onde só desbloqueia o que foi comprado (Essencial ou Premium).

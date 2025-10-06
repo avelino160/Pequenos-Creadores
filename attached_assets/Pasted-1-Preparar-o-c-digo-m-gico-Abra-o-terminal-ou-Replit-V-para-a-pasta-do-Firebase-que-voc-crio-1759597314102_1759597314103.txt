@@ -1,0 +1,102 @@
+1. Preparar o código mágico
+
+Abra o terminal (ou Replit).
+
+Vá para a pasta do Firebase que você criou.
+
+Instale essas magias (bibliotecas):
+
+npm install firebase-admin firebase-functions express body-parser @sendgrid/mail
+
+
+Essas coisas ajudam o Firebase a criar usuário e enviar e-mail.
+
+2. Criar o código da mágica
+
+Crie um arquivo chamado functions/index.js e cole isso:
+
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+const express = require('express');
+const bodyParser = require('body-parser');
+const sgMail = require('@sendgrid/mail');
+
+admin.initializeApp();
+const db = admin.firestore();
+
+sgMail.setApiKey(functions.config().sendgrid.key);
+
+const app = express();
+app.use(bodyParser.json());
+
+// rota mágica do webhook
+app.post('/webhook', async (req, res) => {
+  try {
+    const email = req.body.email; // e-mail da pessoa que comprou
+    if(!email) return res.status(400).send("Sem email");
+
+    const password = Math.random().toString(36).slice(-10); // senha mágica
+
+    // criar usuário no Firebase
+    let user;
+    try {
+      user = await admin.auth().getUserByEmail(email);
+      await admin.auth().updateUser(user.uid, { password }); // se já existe, atualiza senha
+    } catch(e) {
+      user = await admin.auth().createUser({ email, password });
+    }
+
+    // marca que é membro
+    await admin.auth().setCustomUserClaims(user.uid, { member: true });
+
+    // salva no banco
+    await db.collection('members').doc(user.uid).set({
+      email,
+      active: true,
+      createdAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+
+    // envia e-mail
+    const msg = {
+      to: email,
+      from: functions.config().sendgrid.from,
+      subject: 'Bem-vindo à área de membros!',
+      text: `Seu login: ${email}\nSua senha: ${password}`
+    };
+    await sgMail.send(msg);
+
+    res.send("Conta criada e e-mail enviado!");
+  } catch(err) {
+    console.error(err);
+    res.status(500).send("Erro mágico");
+  }
+});
+
+exports.webhookHandler = functions.https.onRequest(app);
+
+3. Explicando como funciona (simples):
+
+app.post('/webhook'): aqui chega a mensagem do Hotmart dizendo que alguém comprou.
+
+Math.random().toString(36).slice(-10): cria uma senha mágica permanente.
+
+admin.auth().createUser: cria a conta no Firebase.
+
+db.collection('members').doc(user.uid).set(...): guarda no banco que essa pessoa é membro.
+
+sgMail.send(msg): envia o e-mail com login e senha.
+
+4. Colocar para funcionar (Deploy mágico)
+
+No terminal, dentro da pasta do Firebase:
+
+firebase deploy --only functions
+
+
+Depois do deploy, você vai ter uma URL parecida com:
+
+https://us-central1-SEU-PROJETO.cloudfunctions.net/webhookHandler
+
+
+Essa URL você coloca no Hotmart → Webhooks.
+Agora, toda vez que alguém comprar, a conta é criada sozinha e o e-mail é enviado.
